@@ -1,0 +1,42 @@
+lamdba Code
+-----------
+
+var AWS = require("aws-sdk");
+
+exports.handler = (event, context, callback) => {
+    var s3 = new AWS.S3();
+    var sourceBucket = "s3://raj-storage-01a-source";
+    var destinationBucket = "s3://raj-storage-01a-destination";
+    var objectKey = event.Records[0].s3.object.key;
+    var copySource = encodeURI(sourceBucket + "/" + objectKey);
+    var copyParams = { Bucket: destinationBucket, CopySource: copySource, Key: objectKey };
+    s3.copyObject(copyParams, function(err, data) {
+        if (err) {
+            console.log(err, err.stack);
+        } else {
+            console.log("S3 object copy successful.");
+        }
+    });
+};
+
+
+--------------------
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::raj-storage-01a-source/*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::raj-storage-01a-destination/*"
+        }
+    ]
+}
+

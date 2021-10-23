@@ -1,0 +1,10 @@
+setx AWS_ACCESS_KEY_ID ASIA6OZNGLNLCFUHQ3MQ
+setx AWS_SECRET_ACCESS_KEY UMl6u6LFvu9r3IAbKSypQu/+6Yn1iMOdsUl9JejU
+setx AWS_SECURITY_TOKEN FwoGZXIvYXdzEJX//////////wEaDEOsadUg0zW+8dIg4iK7ATNiVHK92auphUujVkfnEGmMsaMXLq9urokgyM9gbbk/yLB2BWH2n6QwqGCF8QJxn5gijlzt9zPerU0K1Ue6G5+RW/+pkj5mqHf3rXW3RbZvJAYBKCJMOLIghSxNoSQ1P0RJeA26XZ80eO44XjyJNBVfXg9WZ7Hsl+gk8DggvJyki5IswnvlHTOHPaERl2kkNZbq6RaLbQaPHES4+UkVwzeEehoNJQu6GfY5ivbC636A8xAOSt4dAjZJ1Scow5bMiwYyLaN+a1fOc+UgzrUQmTLSxIOjsTrJxlH8V9QgC6oziZPJYGrxT6Zmfp7rUTcZtg==
+
+setx AWS_DEFAULT_REGION us-east-1
+
+AWS CLI commands
+----------------
+aws --version
+aws s3 ls s3://raj-simplilearn-bigdata-aws-data-analytics-1

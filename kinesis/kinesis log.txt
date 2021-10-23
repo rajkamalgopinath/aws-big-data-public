@@ -1,0 +1,29 @@
+# create stream
+#--cli-binary-format raw-in-base64-out
+
+aws kinesis create-stream --stream-name raj-data-stream-01a --shard-count 1 --cli-binary-format raw-in-base64-out
+
+
+# describe stream
+aws kinesis describe-stream --stream-name raj-data-stream
+
+
+# put record into stream
+
+aws kinesis put-record --stream-name raj-data-stream --partition-key 1 --data dev1~result~101 --cli-binary-format raw-in-base64-out
+
+
+# iterate records from stream
+aws kinesis get-shard-iterator --stream-name raj-data-stream-02 --shard-iterator-type TRIM_HORIZON --shard-id shardId-000000000000
+
+# get records from shard
+aws kinesis get-records  --shard-iterator AAAAAAAAAAErwFDgv0XK23qGvrwS5faFrH1ZUvBjcOgE9M9mTA39p4TffiPfs1FgmoeSEdBbnQ5Pnaove2SK162M1wrqBpF/tuSkHhG5jbPf8VHyvA4ba41BTvgodSfq1lJxH7hxtE9HjwRYOXxqkwi+3Ga5atoTonwnm1TNH2DMWGMyk+6zYBZQ6yHITSHl6xjgC6H29qvogdfwmsL+jT1ipkAJtwDzEUvjwEYRjF7YORKU6Vq1/DI+VTVotCyazb6zJfNTEPw=
+
+aws firehose put-record --delivery-stream-name raj-redshift-stream-01a --cli-binary-format raw-in-base64-out --record '{"Data":"dev1|2021-10-15 10:10:10|100"}'
+
+
+aws firehose put-record --delivery-stream-name raj-redshift-stream-01a  --cli-binary-format raw-in-base64-out --record=file://doc.json
+
+aws firehose put-record --delivery-stream-name raj-redshift-stream-1 --cli-binary-format raw-in-base64-out --record '{"Data":"{devi"}'
+
+
